@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  background-color: #111;
+  color: #eee;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav a {
+  color: #d8b06a; /* gull/bronse */
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.logo {
+  font-size: 28px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.hero {
+  height: 100vh;
+  background-image: url("bilder/forside.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* NY */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin: 0 0 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #d8b06a;
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* SCROLL SECTION */
+.intro {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 40px;
+}
+
+.intro p {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
