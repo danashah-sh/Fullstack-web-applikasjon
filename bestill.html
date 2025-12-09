@@ -2,40 +2,68 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Bestill Bord</title>
+    <title>Bestill Bord — Tangen Torv</title>
     <link rel="stylesheet" href="bestill.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <a href="index.html">Hjem</a>
-    <a href="meny.html">Meny</a>
-    <a href="bestill.html">Bestill bord</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="ansatte.html">Ansatte</a>
-</nav>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="index.html">Hjem</a>
+      <a href="meny.html">Meny</a>
+      <a href="bestill.html">Bestill</a>
+    </div>
 
-<h1>Bestill Bord</h1>
+    <div class="logo">TANGEN TORV</div>
 
-<form id="bookingForm">
-    <label>Navn:</label>
-    <input type="text" required>
+    <div class="nav-right">
+      <a href="kontakt.html">Kontakt</a>
+      <a href="ansatte.html">Ansatte</a>
+    </div>
+  </nav>
 
-    <label>Telefon:</label>
-    <input type="text" required>
+  <!-- HERO -->
+  <header class="hero hero-small">
+    <div class="hero-content">
+      <h1>Bestill Bord</h1>
+      <p>Reserver bord hos oss – fyll inn skjemaet under</p>
+    </div>
+  </header>
 
-    <label>Antall personer:</label>
-    <input type="number" required>
+  <!-- FORM-SEKSJON -->
+  <section class="form-section">
+    <form id="bookingForm">
+      <label for="navn">Navn:</label>
+      <input type="text" id="navn" name="navn" required>
 
-    <label>Dato:</label>
-    <input type="date" required>
+      <label for="telefon">Telefon:</label>
+      <input type="text" id="telefon" name="telefon" required>
 
-    <label>Tidspunkt:</label>
-    <input type="time" required>
+      <label for="antall">Antall personer:</label>
+      <input type="number" id="antall" name="antall" required>
 
-    <button type="submit">Send inn</button>
-</form>
+      <label for="dato">Dato:</label>
+      <input type="date" id="dato" name="dato" required>
 
-<script src="script.js"></script>
+      <label for="tid">Tidspunkt:</label>
+      <input type="time" id="tid" name="tid" required>
+
+      <button type="submit">Send inn</button>
+    </form>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Takk! Reservasjonen er mottatt.');
+      window.location.href = 'bekreftelse.html';
+    });
+  </script>
+
 </body>
 </html>
