@@ -2,37 +2,113 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Meny – Tangen Torv</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Meny — Tangen Torv</title>
+    <link rel="stylesheet" href="meny.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <a href="index.html">Hjem</a>
-    <a href="meny.html">Meny</a>
-    <a href="bestill.html">Bestill bord</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="ansatte.html">Ansatte</a>
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-left">
+        <a href="index.html">Hjem</a>
+        <a href="meny.html" class="active">Meny</a>
+        <a href="bestill.html">Bestill</a>
+    </div>
+
+    <div class="logo">TANGEN TORV</div>
+
+    <div class="nav-right">
+        <a href="kontakt.html">Kontakt</a>
+        <a href="ansatte.html">Ansatte</a>
+    </div>
 </nav>
 
-<h1>Meny</h1>
-
-<div class="menu-list">
-    <div class="menu-item">
-        <h3>Pizza Margherita</h3>
-        <p>149 kr</p>
+<!-- HERO -->
+<header class="hero hero-menu">
+    <div class="hero-content">
+        <h1>Vår Meny</h1>
+        <p>Håndlaget mat, ferske råvarer og ekte grill</p>
     </div>
+</header>
 
-    <div class="menu-item">
-        <h3>Pasta Alfredo</h3>
-        <p>179 kr</p>
-    </div>
+<!-- FILTER KNAPPER -->
+<section class="menu-filter">
+    <button class="filter-btn active" data-filter="all">Alle</button>
+    <button class="filter-btn" data-filter="forretter">Forretter</button>
+    <button class="filter-btn" data-filter="hovedretter">Hovedretter</button>
+    <button class="filter-btn" data-filter="desserter">Desserter</button>
+    <button class="filter-btn" data-filter="drikke">Drikke</button>
+</section>
 
-    <div class="menu-item">
-        <h3>Burger Classic</h3>
-        <p>159 kr</p>
-    </div>
-</div>
+<!-- MENY GRID -->
+<section class="menu-container" id="menuContainer">
+    <!-- Retter legges inn fra JavaScript -->
+</section>
+
+<!-- JAVASCRIPT INTEGRERT HER -->
+<script>
+// Meny-data
+const menuItems = [
+    { kategori: "forretter", navn: "Hvitløksbrød", beskrivelse: "Nystekt med urtesmør", pris: "69,-" },
+    { kategori: "forretter", navn: "Bruschetta", beskrivelse: "Tomat, basilikum og hvitløk", pris: "89,-" },
+
+    { kategori: "hovedretter", navn: "Grillet entrecôte", beskrivelse: "200g, servert med peppersaus", pris: "269,-" },
+    { kategori: "hovedretter", navn: "Burger Tangen", beskrivelse: "Hjemmelaget dressing og fries", pris: "199,-" },
+    { kategori: "hovedretter", navn: "Pasta Alfredo", beskrivelse: "Kremet saus og parmesan", pris: "169,-" },
+
+    { kategori: "desserter", navn: "Sjokoladefondant", beskrivelse: "Med vaniljeis", pris: "119,-" },
+    { kategori: "desserter", navn: "Panna Cotta", beskrivelse: "Bærsaus og mynte", pris: "99,-" },
+
+    { kategori: "drikke", navn: "Cola", beskrivelse: "0.5L", pris: "39,-" },
+    { kategori: "drikke", navn: "Mineralvann", beskrivelse: "Assortert", pris: "35,-" },
+    { kategori: "drikke", navn: "Husets øl", beskrivelse: "Fatøl", pris: "89,-" }
+];
+
+// Container
+const container = document.getElementById("menuContainer");
+
+// Funksjon for å vise retter
+function renderMenu(filter) {
+    container.innerHTML = "";
+
+    const filtered =
+        filter === "all"
+            ? menuItems
+            : menuItems.filter(item => item.kategori === filter);
+
+    filtered.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("menu-item");
+
+        div.innerHTML = `
+            <h3>${item.navn}</h3>
+            <p>${item.beskrivelse}</p>
+            <div class="price">${item.pris}</div>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+// Start med alle retter
+renderMenu("all");
+
+// Filtreringsknapper
+const buttons = document.querySelectorAll(".filter-btn");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelector(".filter-btn.active").classList.remove("active");
+        btn.classList.add("active");
+
+        const kategori = btn.getAttribute("data-filter");
+        renderMenu(kategori);
+    });
+});
+</script>
 
 </body>
 </html>

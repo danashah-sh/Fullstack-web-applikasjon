@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    background-color: #111;
+    color: #eee;
+}
+
+/* NAV – samme stil som resten */
+.nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav a {
+    color: #d8b06a;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav a.active {
+    border-bottom: 1px solid #d8b06a;
+}
+
+.logo {
+    font-size: 28px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* HERO */
+.hero {
+    height: 40vh;
+    background-image: url("bilder/ansatte.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    transform: translateY(-50%);
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* ANSATTE GRID */
+.ansatte-wrapper {
+    padding: 80px 8%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+}
+
+.ansatt {
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.ansatt:hover {
+    transform: translateY(-5px);
+    border-color: #d8b06a;
+}
+
+.ansatt img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.ansatt h3 {
+    font-size: 24px;
+    margin: 10px 0 5px;
+    color: #d8b06a;
+}
+
+.stilling {
+    font-size: 16px;
+    color: #b89457;
+    margin-bottom: 10px;
+}
+
+.ansatt p {
+    font-size: 15px;
+    line-height: 1.5;
+}

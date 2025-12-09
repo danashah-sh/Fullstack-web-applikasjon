@@ -1,41 +1,58 @@
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Playfair Display", serif;
   background-color: #111;
   color: #eee;
+  line-height: 1.6;
 }
 
 /* NAV */
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 100;
 }
 
 .nav a {
-  color: #d8b06a; /* gull/bronse */
+  color: #d8b06a;
   margin: 0 15px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
 }
 
 .logo {
   font-size: 28px;
-  color: white;
+  color: #fff;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 
+/* HERO */
 .hero {
+  position: relative;
   height: 100vh;
   background-image: url("bilder/forside.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; /* NY */
+  display: flex;
+  align-items: center;
 }
 
 .hero::after {
@@ -46,50 +63,116 @@ body {
 }
 
 .hero-content {
-  position: absolute;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-  color: white;
+  position: relative;
+  margin-left: 8%;
   max-width: 500px;
+  color: #fff;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 .hero h1 {
   font-size: 60px;
   margin: 0 0 20px;
 }
-
 .hero p {
   font-size: 20px;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #f5f5f5;
 }
 
-.hero-btn {
+.intro-btn {
   display: inline-block;
-  padding: 12px 20px;
+  padding: 14px 28px;
   background: #d8b06a;
   color: #111;
   text-decoration: none;
+  font-size: 18px;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
-/* SCROLL SECTION */
+.intro-btn:hover {
+  background: #e3bf7b;
+  transform: translateY(-2px);
+}
+
+/* INTRO SEKSJON */
 .intro {
-  padding: 70px 20px;
+  padding: 80px 20px;
   text-align: center;
+  background: #111;
 }
 
 .intro h2 {
-  font-size: 40px;
+  font-size: 42px;
+  margin-bottom: 20px;
 }
-
 .intro p {
   max-width: 700px;
-  margin: 20px auto;
+  margin: 0 auto;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.8;
+  color: #ddd;
 }
 
+/* INFO CARDS */
+.info-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
 
+.card {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+  color: #d8b06a;
+  margin-bottom: 10px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  .nav a {
+    font-size: 14px;
+    margin: 0 10px;
+  }
+  .intro h2 {
+    font-size: 32px;
+  }
+  .info-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

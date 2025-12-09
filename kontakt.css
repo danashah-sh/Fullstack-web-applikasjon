@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    background-color: #111;
+    color: #eee;
+}
+
+/* NAV (samme som andre sider) */
+.nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav a {
+    color: #d8b06a;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav a.active {
+    border-bottom: 1px solid #d8b06a;
+}
+
+.logo {
+    font-size: 28px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* HERO */
+.hero {
+    height: 40vh;
+    background-image: url("bilder/kontakt.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* KONTAKT LAYOUT */
+.kontakt-wrapper {
+    display: flex;
+    padding: 80px 8%;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.kontakt-info,
+.kontakt-skjema {
+    flex: 1;
+    min-width: 280px;
+}
+
+.kontakt-info h2,
+.kontakt-skjema h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #d8b06a;
+}
+
+/* SKJEMA */
+.kontakt-skjema label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.kontakt-skjema input,
+.kontakt-skjema textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background: #222;
+    color: white;
+}
+
+.kontakt-skjema textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.kontakt-skjema button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: #d8b06a;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #111;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.kontakt-skjema button:hover {
+    background: #e3bf7b;
+}
