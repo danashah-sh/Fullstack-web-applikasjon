@@ -4,6 +4,9 @@ body {
     background-color: #111;
     color: #eee;
 }
+body {
+  overflow-x: hidden;
+}
 
 /* NAV – samme stil som resten */
 .nav {

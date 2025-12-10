@@ -1,11 +1,18 @@
-body {
+/* GLOBAL */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: "Playfair Display", serif;
   background-color: #111;
   color: #eee;
+  overflow-x: hidden; /* fjerner scroll */
 }
 
-/* NAV – lik index */
+/* NAVBAR */
 .nav {
   position: absolute;
   top: 0;
@@ -14,6 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* gjør navbar responsiv */
   z-index: 10;
 }
 
@@ -24,10 +32,18 @@ body {
   font-size: 14px;
 }
 
+.nav-left,
+.nav-right {
+  display: flex;
+  flex-wrap: wrap; /* små skjermer håndteres */
+  align-items: center;
+}
+
 .logo {
   font-size: 28px;
   color: white;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 /* HERO */
@@ -59,12 +75,11 @@ body {
 
 .hero-content h1 {
   font-size: 48px;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
 
 .hero-content p {
   font-size: 18px;
-  margin: 0;
 }
 
 /* FORM-SEKSJON */
@@ -116,18 +131,22 @@ button {
   font-size: 18px;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 button:hover {
   opacity: 0.9;
 }
 
-/* RESPONSIV */
-@media (max-width: 600px) {
-  .nav {
-    padding: 15px 20px;
-  }
+/* FEEDBACK MELDING */
+#feedback {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
 
+/* RESPONSIV */
+@media (max-width: 800px) {
   .hero-content h1 {
     font-size: 36px;
   }
@@ -136,4 +155,31 @@ button:hover {
     width: 90%;
     padding: 20px;
   }
+
+  .nav-left,
+  .nav-right {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav a {
+    margin: 5px 10px;
+  }
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  background: #222;
+  color: #eee;
+  border-bottom: 2px solid #555;
+  font-size: 16px;
+  border-radius: 0; /* holder samme stil som input */
+}
+
+select:focus {
+  outline: none;
+  border-bottom: 2px solid #d8b06a;
 }
