@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Ansatt – Logg inn</title>
+  <link rel="stylesheet" href="ansatt-login.css">
+</head>
+<body>
+  <div class="login-box">
+    <h2>Ansatt – Logg inn</h2>
+    <form onsubmit="return login()">
+      <label>Brukernavn</label>
+      <input type="text" id="user" required>
+
+      <label>Passord</label>
+      <input type="password" id="pass" required>
+
+      <button type="submit">Logg inn</button>
+      <p id="error"></p>
+    </form>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('user').value;
+      const password = document.getElementById('pass').value;
+
+      // Enkel demo: brukernavn: ansatt, passord: 1234
+      if(username === 'ansatt' && password === '1234') {
+        window.location.href = 'admin-panel.html';
+      } else {
+        document.getElementById('error').textContent = "Feil brukernavn eller passord";
+      }
+      return false; // hindrer form submission
+    }
+  </script>
+</body>
+</html>

@@ -116,3 +116,69 @@ body {
     font-size: 15px;
     line-height: 1.5;
 }
+
+
+
+
+
+
+/* LOGIN OVERLAY */
+#login-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-box {
+    background: #1c1c1c;
+    padding: 40px;
+    width: 320px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.login-box h2 {
+    color: #d8b06a;
+}
+
+.login-box label {
+    display: block;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+}
+
+.login-box button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #d8b06a;
+    font-weight: bold;
+    color: #111;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background: #e3bf7b;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}

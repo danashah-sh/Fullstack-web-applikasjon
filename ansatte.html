@@ -9,6 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="login-overlay">
+    <div class="login-box">
+        <h2>Ansatt – Logg inn</h2>
+
+        <form onsubmit="return login()">
+            <label>Brukernavn</label>
+            <input type="text" id="user" required>
+
+            <label>Passord</label>
+            <input type="password" id="pass" required>
+
+            <button type="submit">Logg inn</button>
+
+            <p id="error"></p>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- NAV -->
 <nav class="nav">
@@ -33,6 +65,7 @@
         <p>Et dedikert team som brenner for god mat og god service</p>
     </div>
 </header>
+
 
 <!-- ANSATTE GRID -->
 <section class="ansatte-wrapper">
