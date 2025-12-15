@@ -33,16 +33,7 @@ CREATE TABLE IF NOT EXISTS bookings (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
 
--- menu_items
-CREATE TABLE IF NOT EXISTS menu_items (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  name VARCHAR(200) NOT NULL,
-  description TEXT,
-  price NUMERIC(8,2) NOT NULL,
-  category VARCHAR(100),
-  available BOOLEAN DEFAULT true,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
-);
+
 
 -- orders
 CREATE TABLE IF NOT EXISTS orders (
