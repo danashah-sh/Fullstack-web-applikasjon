@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
     <meta charset="UTF-8">
     <title>Kontakt – Tangen Torv</title>
@@ -8,69 +9,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-    <div class="nav-left">
-        <a href="index.html">Hjem</a>
-        <a href="meny.html">Meny</a>
-        <a href="bestill.html">Bestill</a>
-    </div>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="index.html">Hjem</a>
+            <a href="meny.html">Meny</a>
+            <a href="bestill.html">Bestill</a>
+            <a href="ansatte.html">Ansatte</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
 
-    <div class="logo">TANGEN TORV</div>
+        <div class="logo">TANGEN TORV</div>
 
-    <div class="nav-right">
-        <a href="kontakt.html" class="active">Kontakt</a>
-        <a href="ansatte.html">Ansatte</a>
-    </div>
-</nav>
+        <div class="nav-right">
+            <button class="login-btn" onclick="openLogin()">Logg inn</button>
+        </div>
+    </nav>
 
-<!-- HERO -->
-<header class="hero hero-kontakt">
-    <div class="hero-content">
-        <h1>Kontakt oss</h1>
-        <p>Vi svarer gjerne på spørsmål og henvendelser</p>
-    </div>
-</header>
+    <!-- HERO -->
+    <header class="hero hero-kontakt">
+        <div class="hero-content">
+            <h1>Kontakt oss</h1>
+            <p>Vi svarer gjerne på spørsmål og henvendelser</p>
+        </div>
+    </header>
 
-<!-- KONTAKT INFO + SKJEMA -->
-<section class="kontakt-wrapper">
+    <!-- KONTAKT INFO + SKJEMA -->
+    <section class="kontakt-wrapper">
 
-    <div class="kontakt-info">
-        <h2>Kontaktinformasjon</h2>
+        <div class="kontakt-info">
+            <h2>Kontaktinformasjon</h2>
 
-        <p><strong>Adresse:</strong><br>
-        Tangen Torv 12, 4820 Froland</p>
+            <p><strong>Adresse:</strong><br>
+                Tangen Torv 12, 4820 Froland</p>
 
-        <p><strong>Telefon:</strong><br>
-        987 65 432</p>
+            <p><strong>Telefon:</strong><br>
+                987 65 432</p>
 
-        <p><strong>E-post:</strong><br>
-        post@tangentorv.no</p>
+            <p><strong>E-post:</strong><br>
+                post@tangentorv.no</p>
 
-        <p><strong>Åpningstider:</strong><br>
-        Man–Tor: 11:00 – 22:00<br>
-        Fre–Lør: 11:00 – 23:30<br>
-        Søndag: 12:00 – 21:00</p>
-    </div>
+            <p><strong>Åpningstider:</strong><br>
+                Man–Tor: 11:00 – 22:00<br>
+                Fre–Lør: 11:00 – 23:30<br>
+                Søndag: 12:00 – 21:00</p>
+        </div>
 
-    <form class="kontakt-skjema">
-        <h2>Send oss en melding</h2>
+        <form class="kontakt-skjema">
+            <h2>Send oss en melding</h2>
 
-        <label>Navn</label>
-        <input type="text" required>
+            <label>Navn</label>
+            <input type="text" required>
 
-        <label>E-post</label>
-        <input type="email" required>
+            <label>E-post</label>
+            <input type="email" required>
 
-        <label>Melding</label>
-        <textarea required></textarea>
+            <label>Melding</label>
+            <textarea required></textarea>
 
-        <button type="submit">Send inn</button>
-    </form>
+            <button type="submit">Send inn</button>
+        </form>
 
-</section>
+    </section>
 
 </body>
+
 </html>
