@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
     <meta charset="UTF-8">
     <title>Ansatte – Tangen Torv</title>
@@ -8,97 +9,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<div id="login-overlay">
-    <div class="login-box">
-        <h2>Ansatt – Logg inn</h2>
 
-        <form onsubmit="return login()">
-            <label>Brukernavn</label>
-            <input type="text" id="user" required>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="index.html">Hjem</a>
+            <a href="meny.html">Meny</a>
+            <a href="bestill.html">Bestill</a>
+        </div>
 
-            <label>Passord</label>
-            <input type="password" id="pass" required>
+        <div class="logo">TANGEN TORV</div>
 
-            <button type="submit">Logg inn</button>
+        <div class="nav-right">
+            <a href="kontakt.html">Kontakt</a>
+            <a href="ansatte.html" class="active">Ansatte</a>
+        </div>
+    </nav>
 
-            <p id="error"></p>
-        </form>
-    </div>
-</div>
+    <!-- HERO -->
+    <header class="hero hero-ansatte">
+        <div class="hero-content">
+            <h1>Våre ansatte</h1>
+            <p>Et dedikert team som brenner for god mat og god service</p>
+        </div>
+    </header>
 
+    <!-- ANSATTE GRID -->
+    <section class="ansatte-wrapper">
 
+        <div class="ansatt">
+            <img src="bilder/chef1.jpg" alt="Kokk">
+            <h3>Marcus Olsen</h3>
+            <p class="stilling">Kjøkkensjef</p>
+            <p>Over 15 års erfaring fra grill og gourmet. Leder kjøkkenet med lidenskap.</p>
+        </div>
 
+        <div class="ansatt">
+            <img src="bilder/chef2.jpg" alt="Souschef">
+            <h3>Lars Berg</h3>
+            <p class="stilling">Souschef</p>
+            <p>Ansvarlig for kvalitet og nye retter. Ekspert på italiensk og pasta.</p>
+        </div>
 
+        <div class="ansatt">
+            <img src="bilder/waiter1.jpg" alt="Servitør">
+            <h3>Henrik Lunde</h3>
+            <p class="stilling">Servitør</p>
+            <p>Kjent for topp service og et smil som aldri forsvinner.</p>
+        </div>
 
+        <div class="ansatt">
+            <img src="bilder/waiter2.jpg" alt="Servitør">
+            <h3>Anton Gran</h3>
+            <p class="stilling">Servitør</p>
+            <p>Alltid oppmerksom – passer på at gjestene har det de trenger.</p>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-<!-- NAV -->
-<nav class="nav">
-    <div class="nav-left">
-        <a href="index.html">Hjem</a>
-        <a href="meny.html">Meny</a>
-        <a href="bestill.html">Bestill</a>
-    </div>
-
-    <div class="logo">TANGEN TORV</div>
-
-    <div class="nav-right">
-        <a href="kontakt.html">Kontakt</a>
-        <a href="ansatte.html" class="active">Ansatte</a>
-    </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero hero-ansatte">
-    <div class="hero-content">
-        <h1>Våre ansatte</h1>
-        <p>Et dedikert team som brenner for god mat og god service</p>
-    </div>
-</header>
-
-
-<!-- ANSATTE GRID -->
-<section class="ansatte-wrapper">
-
-    <div class="ansatt">
-        <img src="bilder/chef1.jpg" alt="Kokk">
-        <h3>Marcus Olsen</h3>
-        <p class="stilling">Kjøkkensjef</p>
-        <p>Over 15 års erfaring fra grill og gourmet. Leder kjøkkenet med lidenskap.</p>
-    </div>
-
-    <div class="ansatt">
-        <img src="bilder/chef2.jpg" alt="Souschef">
-        <h3>Lars Berg</h3>
-        <p class="stilling">Souschef</p>
-        <p>Ansvarlig for kvalitet og nye retter. Ekspert på italiensk og pasta.</p>
-    </div>
-
-    <div class="ansatt">
-        <img src="bilder/waiter1.jpg" alt="Servitør">
-        <h3>Henrik Lunde</h3>
-        <p class="stilling">Servitør</p>
-        <p>Kjent for topp service og et smil som aldri forsvinner.</p>
-    </div>
-
-    <div class="ansatt">
-        <img src="bilder/waiter2.jpg" alt="Servitør">
-        <h3>anton Gran</h3>
-        <p class="stilling">Servitør</p>
-        <p>Alltid oppmerksom – passer på at gjestene har det de trenger.</p>
-    </div>
-
-</section>
+    </section>
 
 </body>
+
 </html>

@@ -12,23 +12,19 @@
 
 <body>
 
-  <!-- NAV: helt lik index.html -->
   <nav class="nav">
     <div class="nav-left">
       <a href="index.html">Hjem</a>
       <a href="meny.html">Meny</a>
       <a href="bestill.html">Bestill</a>
-    </div>
-
-    <div class="logo">TANGEN TORV</div>
-
-    <div class="nav-right">
       <a href="kontakt.html">Kontakt</a>
-      <a href="ansatte.html">Ansatte</a>
+    </div>
+    <div class="logo">TANGEN TORV</div>
+    <div class="nav-right">
+      <button class="login-btn" onclick="openLogin()">Logg inn</button>
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="hero-content">
       <h1>Bestill Bord</h1>
@@ -36,7 +32,6 @@
     </div>
   </header>
 
-  <!-- FORM-SEKSJON -->
   <section class="form-section">
     <form id="bookingForm">
       <label for="first_name">Fornavn:</label>
@@ -72,12 +67,10 @@
       <input type="text" id="note" name="note">
 
       <button type="submit">Send inn</button>
-
       <p id="feedback"></p>
     </form>
   </section>
 
-  <!-- SCRIPT -->
   <script>
     document.getElementById('bookingForm').addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -89,8 +82,8 @@
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
         table_id: document.getElementById('table_id').value,
-        booking_time: document.getElementById('date').value + 'T' + document.getElementById('time').value + ':00Z',
-        guests: document.getElementById('guests').value,
+        booking_time: document.getElementById('date').value + 'T' + document.getElementById('time').value,
+        guests: parseInt(document.getElementById('guests').value),
         note: document.getElementById('note').value
       };
 
@@ -109,6 +102,7 @@
           const resData = await response.json();
           feedback.textContent = "Feil: " + (resData.error || "Noe gikk galt.");
           feedback.style.color = "red";
+          console.log(resData); // Se feilmelding i konsollen
         }
       } catch (err) {
         feedback.textContent = "Kunne ikke kontakte serveren.";

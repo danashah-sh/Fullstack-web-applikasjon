@@ -1,38 +1,96 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
   <meta charset="UTF-8">
-  <title>Ansatt – Logg inn</title>
-  <link rel="stylesheet" href="ansatt-login.css">
+  <title>Tangen Torv</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css"> <!-- egen CSS for modal -->
 </head>
+
 <body>
-  <div class="login-box">
-    <h2>Ansatt – Logg inn</h2>
-    <form onsubmit="return login()">
-      <label>Brukernavn</label>
-      <input type="text" id="user" required>
 
-      <label>Passord</label>
-      <input type="password" id="pass" required>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="index.html">Hjem</a>
+      <a href="meny.html">Meny</a>
+      <a href="bestill.html">Bestill</a>
+    </div>
 
-      <button type="submit">Logg inn</button>
-      <p id="error"></p>
-    </form>
+    <div class="logo">TANGEN TORV</div>
+
+    <div class="nav-right">
+      <a href="kontakt.html">Kontakt</a>
+      <a href="ansatte.html">Ansatte</a>
+      <a href="#" onclick="openLogin()">Logg inn</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Velkommen til Tangen Torv</h1>
+      <p>Bestill bord eller bli kjent med våre ansatte</p>
+    </div>
+  </header>
+
+  <!-- LOGIN MODAL -->
+  <div id="login-overlay" onclick="closeLogin()" style="display:none;">
+    <div class="login-box" onclick="event.stopPropagation()">
+      <h2>Ansatt – Logg inn</h2>
+
+      <form id="loginForm">
+        <label>Brukernavn</label>
+        <input type="text" id="user" required>
+
+        <label>Passord</label>
+        <input type="password" id="pass" required>
+
+        <button type="submit">Logg inn</button>
+        <p id="error"></p>
+      </form>
+    </div>
   </div>
 
+  <!-- SCRIPT -->
   <script>
-    function login() {
+    function openLogin() {
+      document.getElementById('login-overlay').style.display = 'flex';
+    }
+
+    function closeLogin() {
+      document.getElementById('login-overlay').style.display = 'none';
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
       const username = document.getElementById('user').value;
       const password = document.getElementById('pass').value;
+      const error = document.getElementById('error');
 
-      // Enkel demo: brukernavn: ansatt, passord: 1234
-      if(username === 'ansatt' && password === '1234') {
-        window.location.href = 'admin-panel.html';
-      } else {
-        document.getElementById('error').textContent = "Feil brukernavn eller passord";
+      try {
+        const res = await fetch('http://localhost:4000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        if (res.ok) {
+          // SUCCESS
+          closeLogin();
+          window.location.href = 'ansatte.html';
+        } else {
+          error.textContent = "Feil brukernavn eller passord";
+        }
+
+      } catch {
+        error.textContent = "Kunne ikke kontakte serveren";
       }
-      return false; // hindrer form submission
-    }
+    });
   </script>
+
 </body>
+
 </html>

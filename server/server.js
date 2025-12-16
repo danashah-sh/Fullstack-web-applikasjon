@@ -28,23 +28,21 @@ app.get('/bookings', async (req, res) => {
   }
 });
 
+// Opprett booking
 app.post('/bookings', async (req, res) => {
   const { first_name, last_name, email, phone, table_id, booking_time, guests, note } = req.body;
 
   try {
-    // 1. Sjekk om kunden allerede finnes basert på e-post
+    // Sjekk om kunden finnes
     let customerResult = await db.query(
       `SELECT id FROM customers WHERE email = $1`,
       [email]
     );
 
     let customer_id;
-
     if (customerResult.rows.length > 0) {
-      // Kunden finnes allerede
       customer_id = customerResult.rows[0].id;
     } else {
-      // Opprett ny kunde
       const newCustomer = await db.query(
         `INSERT INTO customers (first_name, last_name, email, phone)
          VALUES ($1, $2, $3, $4) RETURNING id`,
@@ -53,7 +51,7 @@ app.post('/bookings', async (req, res) => {
       customer_id = newCustomer.rows[0].id;
     }
 
-    // 2. Opprett bookingen med customer_id
+    // Opprett booking
     const bookingResult = await db.query(
       `INSERT INTO bookings (customer_id, table_id, booking_time, guests, note, status)
        VALUES ($1, $2, $3, $4, $5, 'booked') RETURNING *`,
@@ -61,14 +59,30 @@ app.post('/bookings', async (req, res) => {
     );
 
     res.status(201).json(bookingResult.rows[0]);
-
   } catch (err) {
-    console.error(err); // ⚠️ Sjekk terminalen for nøyaktig feilmelding
+    console.error(err);
     res.status(500).json({ error: 'Noe gikk galt' });
   }
 });
 
+// Login (demo)
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const result = await db.query(
+      'SELECT * FROM employees WHERE username = $1 AND password = $2',
+      [username, password]
+    );
 
-
+    if (result.rows.length === 1) {
+      res.json({ success: true });
+    } else {
+      res.status(401).json({ success: false });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Feil ved login' });
+  }
+});
 
 app.listen(PORT, () => console.log(`Server kjører på port ${PORT}`));
