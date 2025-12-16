@@ -37,6 +37,10 @@ body {
   color: #fff;
 }
 
+.nav a.active {
+  border-bottom: 2px solid #d8b06a;
+}
+
 .logo {
   font-size: 28px;
   color: #fff;

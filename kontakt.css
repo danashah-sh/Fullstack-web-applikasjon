@@ -11,25 +11,32 @@ body {
 
 /* NAV (samme som andre sider) */
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 100;
 }
 
 .nav a {
   color: #d8b06a;
   margin: 0 15px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
 }
 
 .nav a.active {
-  border-bottom: 1px solid #d8b06a;
+  border-bottom: 2px solid #d8b06a;
 }
 
 .logo {
@@ -130,10 +137,6 @@ body {
 
 .kontakt-skjema button:hover {
   background: #e3bf7b;
-}
-
-.nav {
-  right: 20px;
 }
 
 .login-btn {

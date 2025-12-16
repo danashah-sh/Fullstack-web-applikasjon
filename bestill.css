@@ -155,16 +155,35 @@ button:hover {
     width: 90%;
     padding: 20px;
   }
+}
 
-  .nav-left,
-  .nav-right {
-    justify-content: center;
-    margin-top: 10px;
-  }
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+}
 
-  .nav a {
-    margin: 5px 10px;
-  }
+.nav a {
+  color: #d8b06a;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.nav a.active {
+  border-bottom: 2px solid #d8b06a;
 }
 
 select {
