@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestillinger – Tangen Torv</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bestillinger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+
+        <div class="logo">TANGEN TORV</div>
+
+        <div class="nav-right">
+            <button class="logout-btn" onclick="logout()">Logg ut</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero hero-bestillinger">
+        <div class="hero-content">
+            <h1>Alle Bestillinger</h1>
+            <p>Oversikt for ansatte – kun synlig etter innlogging</p>
+        </div>
+    </header>
+
+    <!-- BESTILLINGS TABELL -->
+    <section class="bestillinger-wrapper">
+        <table class="bestillinger-table">
+            <thead>
+                <tr>
+                    <th>Kunde</th>
+                    <th>E-post</th>
+                    <th>Telefon</th>
+                    <th>Bord</th>
+                    <th>Antall gjester</th>
+                    <th>Tidspunkt</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="bestillingerBody">
+                <!-- Bestillinger legges inn fra JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Hent bestillinger fra backend
+        async function fetchBestillinger() {
+            try {
+                const res = await fetch('http://localhost:4000/bookings');
+                if (!res.ok) throw new Error('Kunne ikke hente bestillinger');
+                const data = await res.json();
+
+                const tbody = document.getElementById('bestillingerBody');
+                tbody.innerHTML = '';
+
+                data.forEach(b => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${b.first_name} ${b.last_name}</td>
+                        <td>${b.email || '-'}</td>
+                        <td>${b.phone || '-'}</td>
+                        <td>${b.table_name || '-'}</td>
+                        <td>${b.guests}</td>
+                        <td>${new Date(b.booking_time).toLocaleString('no-NO')}</td>
+                        <td class="status ${b.status}">${b.status}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error(err);
+                alert('Kunne ikke hente bestillinger fra serveren');
+            }
+        }
+
+        // Kjør ved lasting
+        fetchBestillinger();
+
+        function logout() {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+
+</html>

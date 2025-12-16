@@ -1,0 +1,79 @@
+/* Hero spesifikk for bestillinger */
+.hero-bestillinger {
+  height: 40vh;
+  background-image: url("bilder/bestillinger.jpg"); /* legg til eget bilde */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-bestillinger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  margin-left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Bestillinger tabell */
+.bestillinger-wrapper {
+  padding: 60px 8%;
+  overflow-x: auto;
+}
+
+.bestillinger-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  color: #eee;
+}
+
+.bestillinger-table th,
+.bestillinger-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.bestillinger-table th {
+  background-color: #111;
+  color: #d8b06a;
+}
+
+.bestillinger-table tr:hover {
+  background-color: #222;
+}
+
+.status.booked {
+  color: #d8b06a;
+}
+
+.status.completed {
+  color: #4caf50;
+}
+
+.status.cancelled {
+  color: #f44336;
+}
+
+.logout-btn {
+  background: #d8b06a;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #e3bf7b;
+}
