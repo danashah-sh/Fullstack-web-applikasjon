@@ -4,7 +4,7 @@
 ## Tangen Torv - Nettsideprosjekt
 
 
-# Dette prosjektet handler om å lage en nettside for restaurant Tangen Torv.
+Dette prosjektet handler om å lage en nettside for restaurant Tangen Torv.
 På nettsiden kan man:
 
 Se info om restauranten, Se meny og åpningstider, Kontakte restauranten, Bestille bord, Ansatte kan også se bestillinger.
