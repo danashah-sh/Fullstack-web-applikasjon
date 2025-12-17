@@ -1,15 +1,15 @@
 # Fullstack-web-applikasjon
 
 
-Tangen Torv - Nettsideprosjekt
+## Tangen Torv - Nettsideprosjekt
 
 
-Dette prosjektet handler om å lage en nettside for restaurant Tangen Torv.
+# Dette prosjektet handler om å lage en nettside for restaurant Tangen Torv.
 På nettsiden kan man:
 
 Se info om restauranten, Se meny og åpningstider, Kontakte restauranten, Bestille bord, Ansatte kan også se bestillinger.
 
-Teknologier
+## Teknologier
 
 Database: PostgreSQL
 Backend: NodeJS + Express
@@ -17,7 +17,7 @@ Frontend: HTML, CSS, JavaScript.
 Docker: Starter databasen enkelt
 GitHub: Lagre og følge med på endringer
 
-Hvordan prosjektet er bygget
+## Hvordan prosjektet er bygget
 Database:
 ER-diagram over tabellene
 SQL-fil som lager tabellene
