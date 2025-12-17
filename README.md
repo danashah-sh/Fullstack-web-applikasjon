@@ -13,7 +13,7 @@ Teknologier
 
 Database: PostgreSQL
 Backend: NodeJS + Express
-Frontend: HTML, CSS, JavaScript
+Frontend: HTML, CSS, JavaScript.
 Docker: Starter databasen enkelt
 GitHub: Lagre og følge med på endringer
 
