@@ -1,79 +1,142 @@
 /* GLOBAL */
+/* Gjelder for alle elementer */
 * {
   box-sizing: border-box;
+  /* Padding og border teller med i størrelsen */
 }
 
 body {
   margin: 0;
+  /* Fjerner standard kant */
+
   font-family: "Playfair Display", serif;
+  /* Skrifttype */
+
   background-color: #111;
+  /* Mørk bakgrunn */
+
   color: #eee;
+  /* Lys tekst */
+
   line-height: 1.6;
+  /* Avstand mellom linjer */
 }
 
-/* NAV */
+/* NAVIGASJON */
 .nav {
   position: fixed;
+  /* Menyen sitter fast øverst */
+
   top: 0;
   width: 100%;
+
   padding: 20px 40px;
+  /* Luft inni menyen */
+
   display: flex;
+  /* Bruker flexbox */
+
   justify-content: space-between;
+  /* Avstand mellom venstre og høyre */
+
   align-items: center;
+  /* Midtstiller vertikalt */
+
   background: rgba(0, 0, 0, 0.7);
+  /* Gjennomsiktig bakgrunn */
+
   backdrop-filter: blur(5px);
+  /* Blur-effekt bak */
+
   z-index: 100;
+  /* Ligger over annet innhold */
 }
 
 .nav a {
   color: #d8b06a;
+  /* Gullfarge på linker */
+
   margin: 0 15px;
+  /* Avstand mellom linker */
+
   text-decoration: none;
+  /* Fjerner understrek */
+
   font-size: 16px;
+
   transition: 0.3s;
+  /* Myk overgang */
 }
 
 .nav a:hover {
   color: #fff;
+  /* Hvit farge når mus er over */
 }
 
 .nav a.active {
   border-bottom: 2px solid #d8b06a;
+  /* Strek under aktiv side */
 }
 
+/* LOGO */
 .logo {
   font-size: 28px;
   color: #fff;
   letter-spacing: 2px;
+  /* Avstand mellom bokstaver */
   font-weight: bold;
 }
 
-/* HERO */
+/* HERO-SEKSJON */
 .hero {
   position: relative;
+  /* Trengs for overlay */
+
   height: 100vh;
+  /* Full skjermhøyde */
+
   background-image: url("bilder/forside.jpg");
+  /* Bakgrunnsbilde */
+
   background-size: cover;
+  /* Bildet dekker hele */
+
   background-position: center;
+  /* Bildet er sentrert */
+
   display: flex;
   align-items: center;
+  /* Midtstiller innhold */
 }
 
-/* 🔥 FIKS: overlay blokkerte knappen */
+/* MØRKT LAG OVER BILDET */
 .hero::after {
   content: "";
+  /* Lager et ekstra lag */
+
   position: absolute;
   inset: 0;
+  /* Dekker hele hero */
+
   background: rgba(0, 0, 0, 0.4);
-  pointer-events: none; /* ← NÅ KAN DU KLIKKE PÅ KNAPPEN */
+  /* Mørk gjennomsiktighet */
+
+  pointer-events: none;
+  /* Lar deg klikke på knapper */
 }
 
+/* INNHOLD I HERO */
 .hero-content {
   position: relative;
+  /* Ligger over overlay */
+
   margin-left: 8%;
   max-width: 500px;
+
   color: #fff;
+
   animation: fadeIn 1s ease-out forwards;
+  /* Fade-in animasjon */
 }
 
 .hero h1 {
@@ -90,22 +153,35 @@ body {
 /* KNAPP */
 .intro-btn {
   display: inline-block;
+
   padding: 14px 28px;
+
   background: #d8b06a;
+  /* Gullfarge */
+
   color: #111;
+
   text-decoration: none;
+  /* Fjerner understrek */
+
   font-size: 18px;
   font-weight: bold;
+
   border-radius: 6px;
+  /* Runde kanter */
+
   transition: all 0.3s ease;
 }
 
 .intro-btn:hover {
   background: #e3bf7b;
+  /* Lysere når hover */
+
   transform: translateY(-2px);
+  /* Løfter knappen litt */
 }
 
-/* INTRO SEKSJON */
+/* INTRO-SEKSJON */
 .intro {
   padding: 80px 20px;
   text-align: center;
@@ -125,26 +201,35 @@ body {
   color: #ddd;
 }
 
-/* INFO CARDS */
+/* INFO-KORT */
 .info-cards {
   display: flex;
   justify-content: center;
   gap: 30px;
+  /* Avstand mellom kort */
+
   padding: 60px 20px;
   flex-wrap: wrap;
+  /* Bryter linje på mobil */
 }
 
 .card {
   background: #1a1a1a;
   padding: 30px;
+
   border-radius: 10px;
+  /* Runde kanter */
+
   width: 250px;
   text-align: center;
+
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  /* Kortet løftes */
+
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -153,7 +238,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* ANIMATIONS */
+/* ANIMASJON */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -165,34 +250,42 @@ body {
   }
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE (MOBIL) */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 40px;
   }
+
   .hero p {
     font-size: 16px;
   }
+
   .nav a {
     font-size: 14px;
     margin: 0 10px;
   }
+
   .intro h2 {
     font-size: 32px;
   }
+
   .info-cards {
     flex-direction: column;
     align-items: center;
   }
 }
 
+/* LOGG INN-KNAPP */
 .login-btn {
   background: #d8b06a;
   color: #111;
   border: none;
+
   padding: 10px 20px;
   font-size: 16px;
+
   border-radius: 5px;
   cursor: pointer;
+
   transition: background 0.3s;
 }
