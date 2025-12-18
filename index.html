@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="no">
+<!-- Starter HTML-dokumentet og sier at språket er norsk -->
 
 <head>
     <meta charset="UTF-8">
+    <!-- Gjør at æ, ø og å vises riktig -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Gjør siden tilpasset mobil -->
+
     <title>Tangen Torv Restaurant</title>
+    <!-- Tittelen som vises i fanen -->
+
     <link rel="stylesheet" href="style.css">
+    <!-- Hoved-CSS for design -->
+
     <link rel="stylesheet" href="login.css">
+    <!-- CSS for innlogging -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Kobler til Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Skrifttype som brukes på siden -->
 </head>
 
 <body>
+    <!-- Alt som vises på nettsiden -->
 
-    <!-- NAV -->
+    <!-- NAVIGASJONSMENY -->
     <nav class="nav">
+        <!-- Venstre side av menyen -->
         <div class="nav-left">
             <a href="index.html" class="active">Hjem</a>
             <a href="meny.html">Meny</a>
@@ -24,50 +40,65 @@
             <a href="kontakt.html">Kontakt</a>
         </div>
 
+        <!-- Logo i midten -->
         <div class="logo">TANGEN TORV</div>
 
+        <!-- Høyre side av menyen -->
         <div class="nav-right">
+            <!-- Knapp for å åpne innlogging -->
             <button class="login-btn" onclick="openLogin()">Logg inn</button>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- STORT BILDE ØVERST (HERO) -->
     <header class="hero">
         <div class="hero-content">
+            <!-- Stor overskrift -->
             <h1>Fersk mat & grill<br>midt på Tangen Torv</h1>
+
+            <!-- Knapp som går til bestilling -->
             <a href="bestill.html" class="intro-btn">Bestill bord</a>
         </div>
     </header>
 
-    <!-- INTRO -->
+    <!-- INTRODUKSJON -->
     <section class="intro">
         <h2>Velkommen til Tangen Torv</h2>
         <p>
+            <!-- Tekst om restauranten -->
             Vi serverer ferske råvarer, gode smaker og en avslappet atmosfære.
             Hos oss kan du nyte alt fra grillretter til hjemmelagde klassikere.
         </p>
     </section>
 
-    <!-- INFO CARDS -->
+    <!-- INFORMASJONSKORT -->
     <section class="info-cards">
+        <!-- Kort 1 -->
         <div class="card">
             <h3>Meny</h3>
             <p>Utforsk våre spennende retter og dagens spesialiteter.</p>
         </div>
+
+        <!-- Kort 2 -->
         <div class="card">
             <h3>Åpningstider</h3>
             <p>Mandag-Søndag: 11:00 - 22:00</p>
         </div>
+
+        <!-- Kort 3 -->
         <div class="card">
             <h3>Kontakt</h3>
             <p>Telefon: 123 45 678 | E-post: info@tangentorv.no</p>
         </div>
     </section>
 
-    <!-- LOGIN MODAL -->
+    <!-- INNLOGGING (SKJULT BOKS) -->
     <div id="login-overlay" onclick="closeLogin()" style="display:none;">
+        <!-- Selve innloggingsboksen -->
         <div class="login-box" onclick="event.stopPropagation()">
             <h2>Ansatt – Logg inn</h2>
+
+            <!-- Innloggingsskjema -->
             <form id="loginForm">
                 <label>Brukernavn</label>
                 <input type="text" id="user" required>
@@ -76,47 +107,57 @@
                 <input type="password" id="pass" required>
 
                 <button type="submit">Logg inn</button>
+
+                <!-- Feilmelding -->
                 <p id="error"></p>
             </form>
         </div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <script>
+        // Åpner innloggingen
         function openLogin() {
             document.getElementById('login-overlay').style.display = 'flex';
         }
 
+        // Lukker innloggingen
         function closeLogin() {
             document.getElementById('login-overlay').style.display = 'none';
         }
 
+        // Når brukeren prøver å logge inn
         document.getElementById('loginForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Stopper siden fra å laste på nytt
 
+            // Henter brukernavn og passord
             const username = document.getElementById('user').value;
             const password = document.getElementById('pass').value;
             const error = document.getElementById('error');
 
             try {
+                // Sender innloggingsinfo til server
                 const res = await fetch('http://localhost:4000/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
                 });
 
+                // Hvis riktig innlogging
                 if (res.ok) {
                     closeLogin();
                     window.location.href = 'bestillinger.html';
                 } else {
+                    // Hvis feil brukernavn/passord
                     error.textContent = "Feil brukernavn eller passord";
                 }
 
             } catch {
+                // Hvis serveren ikke svarer
                 error.textContent = "Kunne ikke kontakte serveren";
             }
         });
     </script>
 
 </body>
-
 </html>
